@@ -1,0 +1,142 @@
+{
+  "tiposAtracoes": [
+    { "id": 1, "nome": "Reservas e parques ecológicos" },
+    { "id": 2, "nome": "Parques de diversão" },
+    { "id": 3, "nome": "Museus" }
+  ],
+  "atracoes": [
+    {
+      "id": 1,
+      "tiposAtracoesId": 1,
+      "nome": "Reserva Faldum Casa de Montanha",
+      "descricao": null,
+      "endereco": "Rodovia SC-370, Km 20,3 Rio dos touros, Urupema - SC, 88625-000",
+      "horarioFuncionamento": "Todos os dias das 08h às 00h",
+      "telContato": "48991930415",
+      "websiteUrl": "https://www.reservafaldum.com.br/",
+      "email": "reservas@reservafaldum.com.br",
+      "avaliacao": "4.9",
+      "precoIngresso": null,
+      "imagens": [
+        "https://lh5.googleusercontent.com/p/AF1QipMX_sLZdUM6A7RDEYHAY6iFkeMV-p_41RVts_uw=w803-h535-k-no",
+        "https://media-cdn.tripadvisor.com/media/photo-s/0b/d0/87/37/reserva-faldum-pousada.jpg",
+        "https://static.wixstatic.com/media/9555ac_b1141b45a1fd49b69522d606eaced2ae~mv2.jpg/v1/fill/w_1024,h_807,al_c,q_85,usm_0.66_1.00_0.01/9555ac_b1141b45a1fd49b69522d606eaced2ae~mv2.webp",
+        "https://media-cdn.tripadvisor.com/media/photo-s/0f/dd/7b/11/eventos.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "tiposAtracoesId": 1,
+      "nome": "Reserva Biológica Marinha do Arvoredo",
+      "descricao": "A Reserva Biológica Marinha do Arvoredo é constituída pelas ilhas de Galés, Arvoredo e Deserta e pelo Calhau de São Pedro. Encontra-se no litoral do estado brasileiro de Santa Catarina, a leste da baía de Zimbros em Bombinhas e ao norte da Ilha de Santa Catarina, onde está situada parte do município de Florianópolis.",
+      "endereco": "Estr. Jorn. Jaime de Arruda Ramos, 586 - Praia Brava, Florianópolis - SC, 88056-750",
+      "horarioFuncionamento": null,
+      "telContato": null,
+      "websiteUrl": null,
+      "email": null,
+      "avaliacao": "4.8",
+      "precoIngresso": null,
+      "imagens": [
+        "https://marsemfim.com.br/wp-content/uploads/2014/04/cost%C3%A3o-rochoso-ilha-deserta-.jpg",
+        "https://marsemfim.com.br/wp-content/uploads/2014/04/cotao-e-onda-ilha-Dserta-SC-.jpg",
+        "https://www.feriasbrasil.com.br/fotosfb/743442186-XG.jpg",
+        "https://marsemfim.com.br/wp-content/uploads/2014/04/fortaleza-ratones-ilha-Ratones-SC-.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "tiposAtracoesId": 1,
+      "nome": "Parque Estadual da Serra do Tabuleiro",
+      "descricao": "O Parque Estadual da Serra do Tabuleiro é uma unidade de conservação brasileira de proteção integral à natureza, com território distribuído pelos municípios catarinenses de Florianópolis, Palhoça, Santo Amaro da Imperatriz, Águas Mornas, São Bonifácio, São Martinho, Imaruí e Paulo Lopes.",
+      "endereco": "Rodovia BR 101, Km 238 S/N, Santo Amaro da Imperatriz - SC, 88140-000",
+      "horarioFuncionamento": "Quarta-feira a domingo das 09h às 16h",
+      "telContato": null,
+      "websiteUrl": null,
+      "email": null,
+      "avaliacao": "4.6",
+      "precoIngresso": null,
+      "imagens": [
+        "https://www.sc.gov.br/images/joomgallery/details/setoriais_6457/ima_20210609_1823151663.jpeg",
+        "https://apuamarafting.com.br/wp-content/uploads/2018/11/aventura-serra-do-tabuleiro-1700x956.jpg",
+        "https://portalpalhoca.com.br/uploads/img_columnist/41/parque-estadual-serra-do-tabuleiro.jpg",
+        "https://trilhandomontanhas.com/arquivos/2018-05/pedra-do-urubu-guarda-do-embau-parque-estadual-serra-do-tabuleiro-palhoca-sc-maior.jpg"
+      ]
+    },
+    {
+      "id": 4,
+      "tiposAtracoesId": 2,
+      "nome": "Beto Carrero World",
+      "descricao": "Beto Carrero World é um parque temático localizado no litoral norte do estado de Santa Catarina, Brasil. Inaugurado no dia 28 de dezembro de 1991, pelo seu idealizador João Batista Sérgio Murad, artisticamente conhecido como Beto Carrero, o parque foi desenvolvido em uma área de 14 quilômetros quadrados.",
+      "endereco": "Rod. Beto Carrero World - Praia de Armação do Itapocorói, Penha - SC, 88385-000",
+      "horarioFuncionamento": "Todos os dias das 09h às 21h",
+      "telContato": "4732612222",
+      "websiteUrl": "https://betocarrero.com.br",
+      "email": null,
+      "avaliacao": "4.7",
+      "precoIngresso": "A partir de R$170,00",
+      "imagens": [
+        "https://fuinessaviagem.com/wp-content/uploads/2019/03/tamanho-beto-carrero-world-1024x614.jpg",
+        "https://www.melhoresdestinos.com.br/wp-content/uploads/2021/05/parque-beto-carrero-world-capa-10.jpg",
+        "https://bcw2018.s3.sa-east-1.amazonaws.com/uploads/galerias/30386/variacao/brinquedos-radicais-1629891719.jpg",
+        "https://uploads.metropoles.com/wp-content/uploads/2021/01/15090725/Beto-carrero-World-600x400.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "tiposAtracoesId": 2,
+      "nome": "Parque Aquático Cascanéia",
+      "descricao": "Eleito como o Melhor Parque Aquático de SC, o parque possui mais de 20 atrações para todas as idades, entre piscinas com água natural e aquecida, toboáguas radicais e moderados, áreas temáticas especiais para a família, o balanço mais alto do Brasil, trilha, cachoeira, e muito mais! Além disso dentro do parque o visitante encontrará opções de alimentação, vestiários, guarda-volumes e toda a estrutura para passar um dia tranquilo! Para aproveitar ao máximo, nossa dica é se hospedar no hotel que fica dentro do parque e aproveitar essa comodidade!",
+      "endereco": "Rua José Patrocínio Santos ￼, 2355 - Belchior Central, Gaspar - SC, 89117-620",
+      "horarioFuncionamento": null,
+      "telContato": "4733978500",
+      "websiteUrl": "https://www.cascaneia.com.br/",
+      "email": "cascaneia@cascaneia.com.br",
+      "avaliacao": "4.7",
+      "precoIngresso": "A partir de R$64,90",
+      "imagens": [
+        "https://vipmar.com.br/wp-content/uploads/2021/06/180446381_4109751315714417_3225760007955268727_n-870x555.jpg",
+        "https://www.jopaviturismo.com.br/admin/image/pacote/87/634md.jpg",
+        "https://i.ytimg.com/vi/SLaNEYGhMu4/maxresdefault.jpg",
+        "https://i.pinimg.com/originals/bf/21/42/bf2142f93620c25120ff9bd0e2faa1bd.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "tiposAtracoesId": 3,
+      "nome": "Museu Victor Meirelles",
+      "descricao": null,
+      "endereco": "R. Victor Meirelles, 59 - Centro, Florianópolis - SC, 88010-440",
+      "horarioFuncionamento": null,
+      "telContato": "4832220692",
+      "websiteUrl": "https://museuvictormeirelles.museus.gov.br/",
+      "email": "mvm@museus.gov.br",
+      "avaliacao": "4.4",
+      "precoIngresso": null,
+      "imagens": [
+        "https://museuvictormeirelles.museus.gov.br/wp-content/uploads/2020/11/Museu-Victor-Meirelles-reinaugurado.jpg",
+        "https://www.imagemdailha.com.br/fmanager/imgilha2016/blogs/imagem3496_1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/e/e7/Museu_Victor_Meirelles.JPG",
+        "https://www.cultura.sc.gov.br/images/_patrimonio/MAT_170228armazem.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "tiposAtracoesId": 3,
+      "nome": "Museu de Arte de Santa Catarina",
+      "descricao": "Museu de Arte de Santa Catarina é um museu de arte no estado brasileiro de Santa Catarina. O Museu de Arte de Santa Catarina é uma instituição vinculada à Fundação Catarinense de Cultura e está instalado, atualmente, no prédio do Centro Integrado de Cultura, na Avenida Gov. Irineu Bornhausen, nº",
+      "endereco": "Av. Gov. Irineu Bornhausen, 5600 - Agronômica, Florianópolis - SC, 88025-202",
+      "horarioFuncionamento": "Todos os dias das 10h às 21h",
+      "telContato": "4836642630",
+      "websiteUrl": "https://www.cultura.sc.gov.br/espacos/masc",
+      "email": null,
+      "avaliacao": "4.6",
+      "precoIngresso": null,
+      "imagens": [
+        "https://www.cultura.sc.gov.br/images/_fcc/MAT_17451029032017_masc_MHM_1029.jpg",
+        "https://www.info4camper.com/fotos/visitar/br/large/photos1-5753-florianopolis_brasil_museu_de_arte_de_santa_catarina.jpg",
+        "https://www.cultura.sc.gov.br/images/_patrimonio/MAT_13544221022013_MASC_MHM_0127.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0aKfAftsSZTFwjIRyEGuCOu9MhK4JXuaHFQIKbL6iRtUhuTTtR2filmn0YJOnEZgN6Ag&usqp=CAU"
+      ]
+    }
+  ]
+}
