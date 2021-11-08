@@ -18,7 +18,7 @@ const Menu: React.FC<MenuProps> = ({ selectedItem: _selectedItem, onSelectedItem
 
     return (
         <View>
-            <ScrollView horizontal contentContainerStyle={[styles.menuWrapper, style]}>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={[styles.menuWrapper, style]}>
                 <MenuContext.Provider value={{ selectedItem, handleChangeSelectedItem }}>
                     {children}
                 </MenuContext.Provider>
@@ -29,7 +29,6 @@ const Menu: React.FC<MenuProps> = ({ selectedItem: _selectedItem, onSelectedItem
 
 const styles = StyleSheet.create({
     menuWrapper: {
-        flex: 1,
         height: 35
     }
 });
