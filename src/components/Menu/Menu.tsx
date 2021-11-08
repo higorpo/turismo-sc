@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { ScrollView, StyleSheet, ViewStyle } from 'react-native';
+import { ScrollView, StyleSheet, View, ViewStyle } from 'react-native';
 import { MenuContext } from './context';
 
 interface MenuProps {
@@ -17,11 +17,13 @@ const Menu: React.FC<MenuProps> = ({ selectedItem: _selectedItem, onSelectedItem
     }, []);
 
     return (
-        <ScrollView horizontal contentContainerStyle={[styles.menuWrapper, style]}>
-            <MenuContext.Provider value={{ selectedItem, handleChangeSelectedItem }}>
-                {children}
-            </MenuContext.Provider>
-        </ScrollView>
+        <View>
+            <ScrollView horizontal contentContainerStyle={[styles.menuWrapper, style]}>
+                <MenuContext.Provider value={{ selectedItem, handleChangeSelectedItem }}>
+                    {children}
+                </MenuContext.Provider>
+            </ScrollView>
+        </View>
     );
 }
 
