@@ -1,13 +1,25 @@
-import React, { useState } from 'react';
-import { View, Text, FlatList } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, FlatList, ActivityIndicator } from 'react-native';
 import LocationListItem from '../../components/LocationListItem';
 import { Menu, MenuItem } from '../../components/Menu';
+import { IAtracao } from '../../types/Atracoes';
+import { useAtracoes } from './hooks/useAtracoes';
 
 
 type MenuOptionsType = 'all' | 'reservas-parques' | 'parques-diversao' | 'museus';
 
+const menuOptionsMap = {
+    'all': -1,
+    'reservas-parques': 1,
+    'parques-diversao': 2,
+    'museus': 3,
+}
+
 const HomeScreen: React.FC = () => {
     const [selectedMenuOption, setSelectedMenuOption] = useState<MenuOptionsType>('all');
+    const [data, loading] = useAtracoes();
+
+    const filteredData = data.filter(item => item.tiposAtracoes?.id === menuOptionsMap[selectedMenuOption]);
 
     return (
         <View style={{ flex: 1 }}>
@@ -22,13 +34,20 @@ const HomeScreen: React.FC = () => {
                 <MenuItem label="Museus" value="museus" />
             </Menu>
 
-            <FlatList
-                contentContainerStyle={{ padding: 10 }}
-                data={[0, 1, 2, 3, 4, 5, 6, 7, 8]}
-                renderItem={({ item }) => (
-                    <LocationListItem />
-                )}
-            />
+            {
+                loading ? (
+                    <View style={{ height: '100%', justifyContent: 'center' }}>
+                        <ActivityIndicator size={40} color="black" />
+                    </View>
+                ) : (
+                    <FlatList
+                        contentContainerStyle={{ padding: 10 }}
+                        data={selectedMenuOption === 'all' ? data : filteredData}
+                        keyExtractor={data => data.id.toString()}
+                        renderItem={({ item }) => <LocationListItem data={item} />}
+                    />
+                )
+            }
         </View>
     );
 }

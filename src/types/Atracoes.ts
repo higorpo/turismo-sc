@@ -11,6 +11,7 @@ export interface IAtracao {
     precoIngresso: string | null
     imagens: string[]
     tiposAtracoes?: {
+        id: number
         nome: string
     }
 }
