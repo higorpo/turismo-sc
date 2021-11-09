@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     },
 
     descriptionItemText: {
+        flex: 1,
         marginLeft: 10,
         color: '#7b7b7b'
     }

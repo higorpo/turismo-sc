@@ -1,19 +1,37 @@
-import { RouteProp, useNavigation, useRoute } from '@react-navigation/core';
-import React from 'react';
-import { FlatList, View, Image, Text, ScrollView } from 'react-native';
+import * as Linking from 'expo-linking';
 import { AntDesign, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+import { RouteProp, useRoute } from '@react-navigation/core';
+import React from 'react';
+import { FlatList, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { IAtracao } from '../../types/Atracoes';
-
 import styles from './styles';
+
 
 type ParamList = {
     Details: IAtracao;
 };
 
 const DetailsScreen: React.FC = () => {
-    const navigation = useNavigation();
     const route = useRoute<RouteProp<ParamList, 'Details'>>();
     const data = route.params;
+
+    function handleOpenAction(type: string) {
+        switch (type) {
+            case 'phone-number':
+                Linking.openURL(`tel:${data.telContato}`);
+                return;
+            case 'website':
+                Linking.openURL(data.websiteUrl as string);
+                return;
+            case 'email':
+                Linking.openURL(`mailto:${data.email}`);
+                return;
+            case 'location':
+                Linking.openURL(`https://www.google.com/maps/search/${data.endereco}`);
+                return;
+            default:
+        }
+    }
 
     return (
         <ScrollView style={styles.screenWrapper}>
@@ -38,10 +56,12 @@ const DetailsScreen: React.FC = () => {
                 <View style={{ marginTop: 10 }}>
                     <Text style={{ fontWeight: 'bold' }}>Informações sobre o local</Text>
                     {data.endereco && (
-                        <View style={styles.descriptionItem}>
-                            <MaterialCommunityIcons name="map-marker-radius" size={24} color="#7b7b7b" />
-                            <Text style={styles.descriptionItemText}>{data.endereco}</Text>
-                        </View>
+                        <TouchableOpacity onPress={() => handleOpenAction('location')}>
+                            <View style={styles.descriptionItem}>
+                                <MaterialCommunityIcons name="map-marker-radius" size={24} color="#7b7b7b" />
+                                <Text style={styles.descriptionItemText}>{data.endereco}</Text>
+                            </View>
+                        </TouchableOpacity>
                     )}
                     {data.horarioFuncionamento && (
                         <View style={styles.descriptionItem}>
@@ -50,22 +70,28 @@ const DetailsScreen: React.FC = () => {
                         </View>
                     )}
                     {data.telContato && (
-                        <View style={styles.descriptionItem}>
-                            <MaterialCommunityIcons name="phone-classic" size={24} color="#7b7b7b" />
-                            <Text style={styles.descriptionItemText}>{data.telContato}</Text>
-                        </View>
+                        <TouchableOpacity onPress={() => handleOpenAction('phone-number')}>
+                            <View style={styles.descriptionItem}>
+                                <MaterialCommunityIcons name="phone-classic" size={24} color="#7b7b7b" />
+                                <Text style={styles.descriptionItemText}>{data.telContato}</Text>
+                            </View>
+                        </TouchableOpacity>
                     )}
                     {data.websiteUrl && (
-                        <View style={styles.descriptionItem}>
-                            <MaterialCommunityIcons name="link" size={24} color="#7b7b7b" />
-                            <Text style={styles.descriptionItemText}>{data.websiteUrl}</Text>
-                        </View>
+                        <TouchableOpacity onPress={() => handleOpenAction('website')}>
+                            <View style={styles.descriptionItem}>
+                                <MaterialCommunityIcons name="link" size={24} color="#7b7b7b" />
+                                <Text style={styles.descriptionItemText}>{data.websiteUrl}</Text>
+                            </View>
+                        </TouchableOpacity>
                     )}
                     {data.email && (
-                        <View style={styles.descriptionItem}>
-                            <MaterialCommunityIcons name="email" size={24} color="#7b7b7b" />
-                            <Text style={styles.descriptionItemText}>{data.email}</Text>
-                        </View>
+                        <TouchableOpacity onPress={() => handleOpenAction('email')}>
+                            <View style={styles.descriptionItem}>
+                                <MaterialCommunityIcons name="email" size={24} color="#7b7b7b" />
+                                <Text style={styles.descriptionItemText}>{data.email}</Text>
+                            </View>
+                        </TouchableOpacity>
                     )}
                     {data.precoIngresso && (
                         <View style={styles.descriptionItem}>
