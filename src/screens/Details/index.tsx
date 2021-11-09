@@ -44,6 +44,9 @@ const DetailsScreen: React.FC = () => {
             />
 
             <View style={{ padding: 16 }}>
+                <View>
+                    <Text>{data.tiposAtracoes?.nome}</Text>
+                </View>
                 <View style={{ flexDirection: 'row' }}>
                     <Text style={styles.title}>{data.nome}</Text>
                     <View style={styles.ratingWrapper}>
@@ -52,6 +55,7 @@ const DetailsScreen: React.FC = () => {
                     </View>
                 </View>
                 {data.descricao && <Text style={styles.description}>{data?.descricao}</Text>}
+
 
                 <View style={{ marginTop: 10 }}>
                     <Text style={{ fontWeight: 'bold' }}>Informações sobre o local</Text>
