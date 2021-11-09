@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, ActivityIndicator } from 'react-native';
+import { AntDesign } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/core';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import React, { useState } from 'react';
+import { ActivityIndicator, FlatList, TouchableOpacity, View } from 'react-native';
 import LocationListItem from '../../components/LocationListItem';
 import { Menu, MenuItem } from '../../components/Menu';
-import { IAtracao } from '../../types/Atracoes';
 import { useAtracoes } from './hooks/useAtracoes';
-
 
 type MenuOptionsType = 'all' | 'reservas-parques' | 'parques-diversao' | 'museus';
 
@@ -16,10 +17,20 @@ const menuOptionsMap = {
 }
 
 const HomeScreen: React.FC = () => {
+    const navigation = useNavigation<NativeStackNavigationProp<any, any>>();
+
     const [selectedMenuOption, setSelectedMenuOption] = useState<MenuOptionsType>('all');
     const [data, loading] = useAtracoes();
 
     const filteredData = data.filter(item => item.tiposAtracoes?.id === menuOptionsMap[selectedMenuOption]);
+
+    navigation.setOptions({
+        headerRight: () => (
+            <TouchableOpacity onPress={() => navigation.navigate('Wishlist')}>
+                <AntDesign name="staro" size={24} color="black" />
+            </TouchableOpacity>
+        )
+    });
 
     return (
         <View style={{ flex: 1 }}>

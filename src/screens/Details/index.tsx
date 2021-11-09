@@ -1,12 +1,11 @@
-import * as Linking from 'expo-linking';
 import { AntDesign, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/core';
-import React, { useState } from 'react';
+import * as Linking from 'expo-linking';
+import React from 'react';
 import { FlatList, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { IAtracao } from '../../types/Atracoes';
-import styles from './styles';
-import { useAsyncStorage } from '@react-native-async-storage/async-storage';
 import useIsAddedWishlist from './hooks/useIsAddedWishlist';
+import styles from './styles';
 
 
 type ParamList = {
