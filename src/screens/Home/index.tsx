@@ -1,7 +1,7 @@
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/core';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList, TouchableOpacity, View } from 'react-native';
 import LocationListItem from '../../components/LocationListItem';
 import { Menu, MenuItem } from '../../components/Menu';
@@ -24,13 +24,15 @@ const HomeScreen: React.FC = () => {
 
     const filteredData = data.filter(item => item.tiposAtracoes?.id === menuOptionsMap[selectedMenuOption]);
 
-    navigation.setOptions({
-        headerRight: () => (
-            <TouchableOpacity onPress={() => navigation.navigate('Wishlist')}>
-                <AntDesign name="staro" size={24} color="black" />
-            </TouchableOpacity>
-        )
-    });
+    useEffect(() => {
+        navigation.setOptions({
+            headerRight: () => (
+                <TouchableOpacity onPress={() => navigation.navigate('Wishlist')}>
+                    <AntDesign name="staro" size={24} color="black" />
+                </TouchableOpacity>
+            )
+        });
+    }, []);
 
     return (
         <View style={{ flex: 1 }}>

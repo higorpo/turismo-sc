@@ -15,7 +15,6 @@ export function useWishlist(): [IAtracao[], boolean] {
         fetch(`http://10.1.1.107:3000/atracoes?${itemsParam}&_expand=tiposAtracoes`)
             .then((response) => response.json())
             .then((response) => {
-                console.log(response);
                 setData(response);
                 setLoading(false);
             });
