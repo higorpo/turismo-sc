@@ -28,7 +28,7 @@ const DetailsScreen: React.FC = () => {
             )
         })
 
-    }, []);
+    }, [isAdded, add, remove]);
 
     function handleOpenAction(type: string) {
         switch (type) {
