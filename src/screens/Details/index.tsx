@@ -1,7 +1,7 @@
 import { AntDesign, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/core';
 import * as Linking from 'expo-linking';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FlatList, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { IAtracao } from '../../types/Atracoes';
 import useIsAddedWishlist from './hooks/useIsAddedWishlist';
@@ -19,15 +19,16 @@ const DetailsScreen: React.FC = () => {
 
     const [isAdded, add, remove] = useIsAddedWishlist(data.id);
 
+    useEffect(() => {
+        navigation.setOptions({
+            headerRight: () => (
+                <TouchableOpacity onPress={() => isAdded ? remove() : add()}>
+                    {isAdded ? <AntDesign name="star" size={24} color="black" /> : <AntDesign name="staro" size={24} color="black" />}
+                </TouchableOpacity>
+            )
+        })
 
-
-    navigation.setOptions({
-        headerRight: () => (
-            <TouchableOpacity onPress={() => isAdded ? remove() : add()}>
-                {isAdded ? <AntDesign name="star" size={24} color="black" /> : <AntDesign name="staro" size={24} color="black" />}
-            </TouchableOpacity>
-        )
-    })
+    }, []);
 
     function handleOpenAction(type: string) {
         switch (type) {
