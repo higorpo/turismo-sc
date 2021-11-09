@@ -1,18 +1,26 @@
 import React from 'react';
 import { Text, TouchableOpacity, View, Image } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/core';
 
 import { IAtracao } from '../../types/Atracoes';
 
 import styles from './styles';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 interface LocationListItemProps {
     data: IAtracao
 }
 
 const LocationListItem: React.FC<LocationListItemProps> = ({ data }) => {
+    const navigation = useNavigation<NativeStackNavigationProp<any, any>>();
+
+    function handleOpenDetails() {
+        navigation.navigate('Details', { ...data });
+    }
+
     return (
-        <TouchableOpacity activeOpacity={1}>
+        <TouchableOpacity activeOpacity={1} onPress={handleOpenDetails}>
             <View style={styles.listItemWrapper}>
                 <View style={styles.categoryWrapper}>
                     <Text>{data.tiposAtracoes?.nome}</Text>
