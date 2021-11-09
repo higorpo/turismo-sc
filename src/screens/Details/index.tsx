@@ -14,8 +14,7 @@ type ParamList = {
 
 const DetailsScreen: React.FC = () => {
     const navigation = useNavigation();
-    const route = useRoute<RouteProp<ParamList, 'Details'>>();
-    const data = route.params;
+    const { params: data } = useRoute<RouteProp<ParamList, 'Details'>>();
 
     const [isAdded, add, remove] = useIsAddedWishlist(data.id);
 
