@@ -6,7 +6,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "run:backend": "json-server --watch db.json"
+    "run:backend": "json-server --host 10.1.1.107 --watch db.json"
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.6",
