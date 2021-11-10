@@ -4,6 +4,7 @@ import * as Linking from 'expo-linking';
 import React, { useEffect } from 'react';
 import { FlatList, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { IAtracao } from '../../types/Atracoes';
+import DetailItem from './components/DetailItem';
 import useIsAddedWishlist from './hooks/useIsAddedWishlist';
 import styles from './styles';
 
@@ -73,50 +74,13 @@ const DetailsScreen: React.FC = () => {
 
                 <View style={{ marginTop: 10 }}>
                     <Text style={{ fontWeight: 'bold' }}>Informações sobre o local</Text>
-                    {data.endereco && (
-                        <TouchableOpacity onPress={() => handleOpenAction('location')}>
-                            <View style={styles.descriptionItem}>
-                                <MaterialCommunityIcons name="map-marker-radius" size={24} color="#7b7b7b" />
-                                <Text style={styles.descriptionItemText}>{data.endereco}</Text>
-                            </View>
-                        </TouchableOpacity>
-                    )}
-                    {data.horarioFuncionamento && (
-                        <View style={styles.descriptionItem}>
-                            <MaterialCommunityIcons name="progress-clock" size={24} color="#7b7b7b" />
-                            <Text style={styles.descriptionItemText}>{data.horarioFuncionamento}</Text>
-                        </View>
-                    )}
-                    {data.telContato && (
-                        <TouchableOpacity onPress={() => handleOpenAction('phone-number')}>
-                            <View style={styles.descriptionItem}>
-                                <MaterialCommunityIcons name="phone-classic" size={24} color="#7b7b7b" />
-                                <Text style={styles.descriptionItemText}>{data.telContato}</Text>
-                            </View>
-                        </TouchableOpacity>
-                    )}
-                    {data.websiteUrl && (
-                        <TouchableOpacity onPress={() => handleOpenAction('website')}>
-                            <View style={styles.descriptionItem}>
-                                <MaterialCommunityIcons name="link" size={24} color="#7b7b7b" />
-                                <Text style={styles.descriptionItemText}>{data.websiteUrl}</Text>
-                            </View>
-                        </TouchableOpacity>
-                    )}
-                    {data.email && (
-                        <TouchableOpacity onPress={() => handleOpenAction('email')}>
-                            <View style={styles.descriptionItem}>
-                                <MaterialCommunityIcons name="email" size={24} color="#7b7b7b" />
-                                <Text style={styles.descriptionItemText}>{data.email}</Text>
-                            </View>
-                        </TouchableOpacity>
-                    )}
-                    {data.precoIngresso && (
-                        <View style={styles.descriptionItem}>
-                            <MaterialIcons name="attach-money" size={24} color="#7b7b7b" />
-                            <Text style={styles.descriptionItemText}>{data.precoIngresso}</Text>
-                        </View>
-                    )}
+
+                    <DetailItem icon="map-marker-radius" text={data.endereco} onPress={() => handleOpenAction('location')} />
+                    <DetailItem icon="progress-clock" text={data.horarioFuncionamento} />
+                    <DetailItem icon="phone-classic" text={data.telContato} onPress={() => handleOpenAction('phone-number')} />
+                    <DetailItem icon="link" text={data.websiteUrl} onPress={() => handleOpenAction('website')} />
+                    <DetailItem icon="email" text={data.email} onPress={() => handleOpenAction('email')} />
+                    <DetailItem icon={<MaterialIcons name="attach-money" size={24} color="#7b7b7b" />} text={data.precoIngresso} />
                 </View>
             </View>
         </ScrollView>
