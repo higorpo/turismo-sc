@@ -1,8 +1,8 @@
-import { AntDesign, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+import { AntDesign, MaterialIcons } from '@expo/vector-icons';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/core';
 import * as Linking from 'expo-linking';
 import React, { useEffect } from 'react';
-import { FlatList, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { Button, FlatList, Image, ScrollView, Share, Text, TouchableOpacity, View } from 'react-native';
 import { IAtracao } from '../../types/Atracoes';
 import DetailItem from './components/DetailItem';
 import useIsAddedWishlist from './hooks/useIsAddedWishlist';
@@ -22,13 +22,29 @@ const DetailsScreen: React.FC = () => {
     useEffect(() => {
         navigation.setOptions({
             headerRight: () => (
-                <TouchableOpacity onPress={() => isAdded ? remove() : add()}>
-                    {isAdded ? <AntDesign name="star" size={24} color="black" /> : <AntDesign name="staro" size={24} color="black" />}
-                </TouchableOpacity>
+                <>
+                    <TouchableOpacity style={{ marginRight: 20 }} onPress={handleShare}>
+                        <AntDesign name="sharealt" size={24} color="black" />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => isAdded ? remove() : add()}>
+                        {isAdded ? <AntDesign name="star" size={24} color="black" /> : <AntDesign name="staro" size={24} color="black" />}
+                    </TouchableOpacity>
+                </>
             )
         })
 
     }, [isAdded, add, remove]);
+
+    async function handleShare() {
+        try {
+            await Share.share({
+                message:
+                    `Estou compartilhando com você informações sobre ${data.nome}, localizado em ${data.endereco}.`,
+            });
+        } catch (error) {
+            alert('Um erro ocorreu!');
+        }
+    }
 
     function handleOpenAction(type: string) {
         switch (type) {
@@ -43,6 +59,9 @@ const DetailsScreen: React.FC = () => {
                 return;
             case 'location':
                 Linking.openURL(`https://www.google.com/maps/search/${data.endereco}`);
+                return;
+            case 'youtube':
+                Linking.openURL(`https://www.youtube.com/results?search_query=${data.nome}`);
                 return;
             default:
         }
@@ -81,6 +100,13 @@ const DetailsScreen: React.FC = () => {
                     <DetailItem icon="link" text={data.websiteUrl} onPress={() => handleOpenAction('website')} />
                     <DetailItem icon="email" text={data.email} onPress={() => handleOpenAction('email')} />
                     <DetailItem icon={<MaterialIcons name="attach-money" size={24} color="#7b7b7b" />} text={data.precoIngresso} />
+
+                    <Text style={{ fontWeight: 'bold', marginTop: 14, marginBottom: 10 }}>Outras informações</Text>
+                    <Button
+                        title="Pesquisar informações no Youtube"
+                        onPress={() => handleOpenAction('youtube')}
+                        color="#c4302b"
+                    />
                 </View>
             </View>
         </ScrollView>
