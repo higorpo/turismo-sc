@@ -38,8 +38,7 @@ const DetailsScreen: React.FC = () => {
     async function handleShare() {
         try {
             await Share.share({
-                message:
-                    `Estou compartilhando com você informações sobre ${data.nome}, localizado em ${data.endereco}.`,
+                message: `Estou compartilhando com você informações sobre ${data.nome}, localizado em ${data.endereco}.\nTelefone: ${data.telContato ?? 'N/A'}\nE-mail: ${data.email ?? 'N/A'}\nWebsite: ${data.websiteUrl ?? 'N/A'}`,
             });
         } catch (error) {
             alert('Um erro ocorreu!');
